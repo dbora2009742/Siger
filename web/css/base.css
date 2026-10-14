@@ -1,0 +1,76 @@
+/* ===== Variables ===== */
+:root {
+  --verde: #10b981;
+  --verde-oscuro: #059669;
+  --fondo-oscuro: #141b2d;
+  --circulo: #1d283d;
+
+  --blanco: #ffffff;
+  --texto: #111827;
+  --texto-suave: #6b7280;
+  --borde: #cfd4da;
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Krub", sans-serif;
+  color: var(--texto);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== Formularios (global) ===== */
+input,
+button {
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.9rem;
+  background: #fafafa;
+  border: 1px solid var(--borde);
+  border-radius: 1.25rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 0.85rem;
+  font-weight: 600;
+  color: var(--blanco);
+  background: var(--verde);
+  border: 0;
+  border-radius: 1.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--verde-oscuro);
+}
+
+/* ===== Enlaces ===== */
+a {
+  color: var(--verde);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
