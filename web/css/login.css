@@ -1,0 +1,170 @@
+.login{
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    background-color: var(--blanco);
+}
+
+.marca{
+    position: relative;
+    z-index:1;
+    text-align: center;
+}
+
+.marca img{
+    width: 8rem;
+    margin: 0 auto 0.5rem;
+    filter: brightness(0) saturate(100%) invert(10%) sepia(25%);
+
+}
+
+.marca p{
+    max-width: 16rem;
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+}
+
+.formulario{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 22rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+
+}
+.formulario h1{
+    font-size: 1.4rem;
+    letter-spacing: 0.02rem;
+}
+
+.formulario p{
+    display: none; /*esto para que en celular no se muestre*/
+}
+.formulario button{
+    margin-top: 1.5rem;
+}
+
+/*Tablet(768px a más) fondo azul y login centrado*/
+
+@media(min-width:768px){
+
+    .login{
+        background: var(--fondo-oscuro);
+    }
+
+    .login::before,
+    .login::after{
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background-color: var(--circulo);
+    }
+
+    .login::before{
+        width: 46rem;
+        height: 46rem;
+        top: -22rem;
+        left: -18rem;
+    }
+
+    .login::after{
+        width: 20rem;
+        height: 20rem;
+        bottom: -12rem;
+        right: 8%;
+    }
+
+    .marca img{
+        width: 9rem;
+        filter: none; /*para mantener logo blanco*/
+    }
+
+    .marca p {
+    max-width: 22rem;
+    font-size: 1rem;
+    color: var(--blanco);
+  }
+
+  /* El formulario se convierte en tarjeta */
+  .formulario {
+    max-width: 30rem;
+    padding: 2.5rem 2.25rem;
+    background: var(--blanco);
+    border-radius: 1.75rem;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  }
+
+  .formulario p {
+    display: block;
+    margin-top: -0.75rem;
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--texto-suave);
+  }
+}
+
+/*Escritorio 1024px a más* login a la derecha*/
+@media (min-width: 1024px) {
+
+  .login {
+    flex-direction: row;
+    gap: 0;
+    padding: 0;
+  }
+
+  .login::before {
+    width: 52rem;
+    height: 52rem;
+    top: -18rem;
+    left: -22rem;
+  }
+
+  .login::after {
+    width: 19rem;
+    height: 19rem;
+    bottom: -9rem;
+    left: 27%;
+    right: auto;
+  }
+
+  .marca {
+    flex: 1;
+  }
+
+  .marca img {
+    width: 14rem;
+  }
+
+  .marca p {
+    margin: 1.75rem auto 0;
+    font-size: 1.15rem;
+  }
+
+  .formulario {
+    flex: 0 0 24rem;
+    margin: 0 4rem;
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* Pantallas grandes: 1280px a más*/
+@media (min-width: 1280px) {
+
+  .marca img {
+    width: 16rem;
+  }
+
+  .formulario {
+    flex-basis: 30rem;
+    margin: 0 6rem;
+  }
+}
