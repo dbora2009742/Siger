@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Ciudadano | SIGER</title>
+
+    <!-- Tipografía e iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Estilos del mapa Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/ciudadano/portal.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="barra-superior">
+
+        <a href="index.html" class="logo">
+            <img src="../../img/logo.png" alt="SIGER">
+            <span>Portal Ciudadano</span>
+        </a>
+
+        <nav class="menu-portal">
+            <a href="index.html" aria-current="page">
+                <i class="bi bi-geo-alt-fill"></i>
+                Mapa en vivo
+            </a>
+
+            <a href="horarios.html">
+                <i class="bi bi-clock"></i>
+                Horarios y rutas
+            </a>
+
+            <a href="aula-ambiental.html">
+                <i class="bi bi-leaf"></i>
+                Aula ambiental
+            </a>
+        </nav>
+
+        <a href="login.html" class="boton-personal">
+            <i class="bi bi-person-badge"></i>
+            <span>Personal municipal</span>
+        </a>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="zona-mapa">
+
+        <!-- ESPACIO RESERVADO PARA EL MAPA -->
+        <div id="mapa"></div>
+
+
+        <!-- TARJETA DE CONSULTA: TABLET Y COMPUTADORA -->
+        <section class="tarjeta-buscador">
+
+            <div class="tarjeta-cabecera">
+
+                <span class="insignia-vivo">
+                    <i class="bi bi-broadcast"></i>
+                    Seguimiento
+                </span>
+
+                <h1>¿Cuándo pasa el camión?</h1>
+
+                <p>Consulta la recolección en tu sector.</p>
+
+            </div>
+
+            <div class="tarjeta-cuerpo">
+
+                <!-- Buscador visual -->
+                <label class="campo-busqueda">
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Calle o subzona..."
+                        aria-label="Buscar calle o subzona"
+                    >
+                </label>
+
+                <!-- Botón visual -->
+                <button class="boton-verde" type="button">
+                    <i class="bi bi-crosshair"></i>
+                    Usar mi ubicación
+                </button>
+
+                <!-- Información del sector -->
+                <div class="estado-sector">
+
+                    <h2>Estado de tu sector</h2>
+
+                    <ul>
+                        <li>
+                            <i class="bi bi-pin-map-fill icono-azul"></i>
+
+                            <div>
+                                <small>Subzona actual</small>
+                                <strong>La Victoria - B</strong>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-clock-fill icono-amarillo"></i>
+
+                            <div>
+                                <small>Próxima recolección</small>
+                                <strong>Hoy, 18:00 - 20:00</strong>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle-fill icono-verde"></i>
+
+                            <div>
+                                <small>Estado de tachos</small>
+                                <strong>Normal · 3 vaciados</strong>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <!-- Botón visual -->
+                <button class="boton-alerta" type="button">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Reportar incidencia
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- LEYENDA DEL MAPA -->
+        <ul class="leyenda">
+            <li class="atendido">Atendido</li>
+            <li class="espera">En espera</li>
+            <li class="pendiente">Pendiente</li>
+        </ul>
+
+
+        <!-- PANEL INFERIOR: CELULARES -->
+        <section class="panel-camion">
+
+            <span class="insignia-vivo">
+                <i class="bi bi-broadcast"></i>
+                Seguimiento
+            </span>
+
+            <div class="camion-info">
+
+                <i class="bi bi-truck"></i>
+
+                <div>
+                    <h2>Camión R-02</h2>
+                    <p>Estado de la ruta de recolección</p>
+                </div>
+
+            </div>
+
+            <button class="boton-verde" type="button">
+                <i class="bi bi-qr-code-scan"></i>
+                Escanear QR de tacho
+            </button>
+
+            <button class="boton-alerta" type="button">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                Reportar incidencia
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- Librería Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Mostrar el mapa -->
+<script>
+    const mapa = L.map("mapa").setView([-12.5933, -69.1891], 14);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapa);
+</script>
+
+</body>
+</html>
