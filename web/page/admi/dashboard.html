@@ -8,320 +8,90 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Iconos de Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- CSS de Leaflet para el mapa -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
-  <!-- RUTAS CORREGIDAS (Apuntando correctamente a la carpeta css) -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
-
 <body>
+  <aside class="sidebar">
+    <a class="marca" href="panel.html">
+      <span class="marca-icono"><i class="bi bi-recycle"></i></span>
+      <span><strong>SIGER</strong><small>Gestión de limpieza urbana</small></span>
+    </a>
 
-  <!-- MENÚ LATERAL: estructura original -->
-  <aside>
-    <img class="logo" src="../img/logo.png" alt="SIGER">
-
-    <nav class="navegacion">
-      <a href="panel.html" aria-current="page">
-        <i class="bi bi-speedometer2"></i> Dashboard
-      </a>
-
-      <a href="usuarios.html">
-        <i class="bi bi-people"></i> Usuarios y Permisos
-      </a>
-
-      <a href="zonificacion.html">
-        <i class="bi bi-map"></i> Zonificación
-      </a>
-
-      <a href="mobiliario.html">
-        <i class="bi bi-trash3"></i> Mobiliario Urbano
-      </a>
-
-      <a href="recursos.html">
-        <i class="bi bi-truck"></i> Recursos operativos
-      </a>
-
-      <a href="rutas.html">
-        <i class="bi bi-signpost-split"></i> Rutas y equipos
-      </a>
-
-      <a href="aula-virtual.html">
-        <i class="bi bi-play-btn"></i> Aula Virtual
-      </a>
+    <span class="nav-titulo">MENÚ PRINCIPAL</span>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <a href="panel.html" aria-current="page"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a>
+      <a href="usuarios.html"><i class="bi bi-people"></i><span>Usuarios y permisos</span></a>
+      <a href="zonificacion.html"><i class="bi bi-map"></i><span>Zonificación</span></a>
+      <a href="mobiliario.html"><i class="bi bi-trash3"></i><span>Mobiliario urbano</span></a>
+      <a href="recursos.html"><i class="bi bi-truck"></i><span>Recursos operativos</span></a>
+      <a href="rutas.html"><i class="bi bi-signpost-split"></i><span>Rutas y equipos</span></a>
+      <a href="aula-virtual.html"><i class="bi bi-play-btn"></i><span>Aula virtual</span></a>
     </nav>
 
-    <a class="cerrar-sesion" href="../login.html">
-      <i class="bi bi-box-arrow-left"></i> Cerrar sesión
-    </a>
+    <a class="cerrar-sesion" href="../login.html"><i class="bi bi-box-arrow-left"></i><span>Cerrar sesión</span></a>
   </aside>
 
-  <!-- BARRA SUPERIOR: estructura original -->
   <header class="barra-superior">
-    <button id="boton-menu" aria-label="Abrir menú">
-      <i class="bi bi-list"></i>
-    </button>
-
+    <div class="ruta-pagina"><span>Panel de control</span><i class="bi bi-chevron-right"></i><strong>Dashboard</strong></div>
     <div class="perfil">
-      <i class="bi bi-person-fill"></i>
-
-      <p>
-        Débora Mamani Vilca
-        <small>Administrador</small>
-      </p>
+      <span class="perfil-avatar"><i class="bi bi-person-fill"></i></span>
+      <span class="perfil-datos"><strong>Débora Mamani Vilca</strong><small>Administrador</small></span>
+      <i class="bi bi-chevron-down perfil-flecha"></i>
     </div>
   </header>
 
-  <!-- DASHBOARD -->
   <main>
-
-    <div class="encabezado">
+    <section class="encabezado">
       <div>
+        <span class="sobretitulo">RESUMEN GENERAL</span>
         <h1>Dashboard operativo</h1>
         <p>Resumen del servicio de limpieza pública</p>
       </div>
-
       <div class="filtros">
-        <select aria-label="Periodo">
-          <option>Hoy</option>
-          <option>Esta semana</option>
-          <option>Este mes</option>
-        </select>
-
-        <select aria-label="Zona">
-          <option>Todas las zonas</option>
-          <option>Zona norte</option>
-          <option>Zona sur</option>
-        </select>
-
-        <select aria-label="Equipo">
-          <option>Todos los equipos</option>
-          <option>R-01</option>
-          <option>R-02</option>
-        </select>
+        <label><span>Periodo</span><select aria-label="Periodo"><option>Hoy</option><option>Esta semana</option><option>Este mes</option></select></label>
+        <label><span>Zona</span><select aria-label="Zona"><option>Todas las zonas</option><option>Zona norte</option><option>Zona sur</option></select></label>
+        <label><span>Equipo</span><select aria-label="Equipo"><option>Todos los equipos</option><option>R-01</option><option>R-02</option></select></label>
       </div>
-    </div>
-
-    <!-- INDICADORES -->
-    <section class="tarjetas">
-
-      <article class="tarjeta">
-        <div class="icono verde">
-          <i class="bi bi-clipboard-check"></i>
-        </div>
-
-        <h2>Servicios de hoy</h2>
-        <p><strong>8</strong> programados</p>
-        <small>3 en curso · 4 finalizados</small>
-      </article>
-
-      <article class="tarjeta">
-        <div class="icono azul">
-          <i class="bi bi-recycle"></i>
-        </div>
-
-        <h2>Residuos recolectados</h2>
-        <p><strong>45.2</strong> toneladas</p>
-        <small>85% de cobertura diaria</small>
-      </article>
-
-      <article class="tarjeta critica">
-        <div class="icono rojo">
-          <i class="bi bi-exclamation-triangle"></i>
-        </div>
-
-        <h2>Incidencias</h2>
-        <p><strong>5</strong> por atender</p>
-        <small>3 tachos dañados · 2 vías bloqueadas</small>
-      </article>
-
-      <article class="tarjeta">
-        <div class="icono amarillo">
-          <i class="bi bi-star"></i>
-        </div>
-
-        <h2>Satisfacción vecinal</h2>
-        <p><strong>4.2</strong> / 5</p>
-        <small>142 valoraciones registradas</small>
-      </article>
-
     </section>
 
-    <!-- MAPA Y DATOS -->
+    <section class="tarjetas">
+      <article class="tarjeta"><div class="tarjeta-cabecera"><h2>Servicios de hoy</h2><span class="icono verde"><i class="bi bi-clipboard-check"></i></span></div><p class="valor"><strong>8</strong><span>programados</span></p><small>3 en curso · 4 finalizados</small></article>
+      <article class="tarjeta"><div class="tarjeta-cabecera"><h2>Residuos recolectados</h2><span class="icono azul"><i class="bi bi-recycle"></i></span></div><p class="valor"><strong>45.2</strong><span>toneladas</span></p><small>85% de cobertura diaria</small></article>
+      <article class="tarjeta critica"><div class="tarjeta-cabecera"><h2>Incidencias</h2><span class="icono rojo"><i class="bi bi-exclamation-triangle"></i></span></div><p class="valor"><strong>5</strong><span>por atender</span></p><small>3 tachos dañados · 2 vías bloqueadas</small></article>
+      <article class="tarjeta"><div class="tarjeta-cabecera"><h2>Satisfacción vecinal</h2><span class="icono amarillo"><i class="bi bi-star"></i></span></div><p class="valor"><strong>4.2</strong><span>/ 5</span></p><small>142 valoraciones registradas</small></article>
+    </section>
+
     <section class="contenido">
-
-      <article class="panel">
-        <h2>
-          <i class="bi bi-geo-alt"></i>
-          Ubicación de los equipos
-        </h2>
-
-        <p>Vista de zonas y equipos operativos</p>
-
-        <div id="mapa"></div>
-
-        <div class="leyenda">
-          <span><i class="punto verde"></i> Zona favorable</span>
-          <span><i class="punto amarillo"></i> Zona regular</span>
-          <span><i class="punto rojo"></i> Zona crítica</span>
+      <article class="panel panel-mapa">
+        <div class="panel-titulo"><div><h2><i class="bi bi-geo-alt"></i> Ubicación de los equipos</h2><p>Vista de referencia de la zona operativa</p></div><span class="etiqueta"><i class="bi bi-circle-fill"></i> Mapa de referencia</span></div>
+        <div class="mapa-marco">
+          <iframe title="Mapa de referencia de Puerto Maldonado" src="https://www.openstreetmap.org/export/embed.html?bbox=-69.225%2C-12.625%2C-69.155%2C-12.565&amp;layer=mapnik" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <p class="nota-mapa"><i class="bi bi-info-circle"></i> Mapa base sin delimitaciones ni marcadores personalizados.</p>
       </article>
 
       <div class="columna">
-
-        <!-- RECOLECCIÓN POR TURNO -->
         <article class="panel">
-          <h2>
-            <i class="bi bi-bar-chart"></i>
-            Recolección por turno
-          </h2>
-
+          <div class="panel-titulo"><div><h2><i class="bi bi-bar-chart"></i> Recolección por turno</h2><p>Toneladas recolectadas</p></div></div>
           <ul class="barras">
-            <li>
-              <strong>24 t</strong>
-              <div class="barra-valor azul" style="height: 70px"></div>
-              <small>Mañana</small>
-            </li>
-
-            <li>
-              <strong>15.2 t</strong>
-              <div class="barra-valor verde" style="height: 45px"></div>
-              <small>Tarde</small>
-            </li>
-
-            <li>
-              <strong>6 t</strong>
-              <div class="barra-valor gris" style="height: 20px"></div>
-              <small>Noche</small>
-            </li>
+            <li><strong>24 t</strong><div class="barra-valor azul" style="height:70px"></div><small>Mañana</small></li>
+            <li><strong>15.2 t</strong><div class="barra-valor verde" style="height:45px"></div><small>Tarde</small></li>
+            <li><strong>6 t</strong><div class="barra-valor gris" style="height:20px"></div><small>Noche</small></li>
           </ul>
         </article>
-
-        <!-- INCIDENCIAS -->
         <article class="panel">
-          <h2>
-            <i class="bi bi-bell"></i>
-            Últimas incidencias
-          </h2>
-
-          <p>Reportes de ciudadanos y operarios</p>
-
+          <div class="panel-titulo"><div><h2><i class="bi bi-bell"></i> Últimas incidencias</h2><p>Reportes de ciudadanos y operarios</p></div></div>
           <ul class="alertas">
-            <li>
-              <i class="bi bi-cone-striped estado rojo"></i>
-
-              <div>
-                <strong>Vía bloqueada</strong>
-                <small>Ruta R-01 · Hace 5 min</small>
-              </div>
-
-              <span class="pendiente">Pendiente</span>
-            </li>
-
-            <li>
-              <i class="bi bi-trash3 estado amarillo"></i>
-
-              <div>
-                <strong>Tacho desbordado</strong>
-                <small>Reporte ciudadano · Hace 12 min</small>
-              </div>
-
-              <span class="pendiente">Pendiente</span>
-            </li>
-
-            <li>
-              <i class="bi bi-check-circle estado verde"></i>
-
-              <div>
-                <strong>Tacho dañado</strong>
-                <small>Ruta R-02 · Hace 2 h</small>
-              </div>
-
-              <span class="atendida">Atendida</span>
-            </li>
+            <li><i class="bi bi-cone-striped estado rojo"></i><div><strong>Vía bloqueada</strong><small>Ruta R-01 · Hace 5 min</small></div><span class="pendiente">Pendiente</span></li>
+            <li><i class="bi bi-trash3 estado amarillo"></i><div><strong>Tacho desbordado</strong><small>Reporte ciudadano · Hace 12 min</small></div><span class="pendiente">Pendiente</span></li>
+            <li><i class="bi bi-check-circle estado verde"></i><div><strong>Tacho dañado</strong><small>Ruta R-02 · Hace 2 h</small></div><span class="atendida">Atendida</span></li>
           </ul>
-
-          <a class="enlace" href="incidencias.html">
-            Ver todas las incidencias
-            <i class="bi bi-arrow-right"></i>
-          </a>
+          <a class="enlace" href="incidencias.html">Ver todas las incidencias <i class="bi bi-arrow-right"></i></a>
         </article>
-
       </div>
     </section>
-
   </main>
-
-  <!-- JAVASCRIPT ORIGINAL DEL PANEL -->
-  <script src="../js/panel.js"></script>
-
-  <!-- MAPA -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <script>
-    const mapa = L.map("mapa").setView([-12.593, -69.189], 14);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap"
-    }).addTo(mapa);
-
-    const zonas = [
-      {
-        color: "#10b981",
-        nombre: "Zona favorable",
-        puntos: [
-          [-12.590, -69.200],
-          [-12.590, -69.190],
-          [-12.600, -69.190],
-          [-12.600, -69.200]
-        ]
-      },
-      {
-        color: "#f59e0b",
-        nombre: "Zona regular",
-        puntos: [
-          [-12.590, -69.190],
-          [-12.590, -69.180],
-          [-12.600, -69.180],
-          [-12.600, -69.190]
-        ]
-      },
-      {
-        color: "#ef4444",
-        nombre: "Zona crítica",
-        puntos: [
-          [-12.600, -69.200],
-          [-12.600, -69.190],
-          [-12.610, -69.190],
-          [-12.610, -69.200]
-        ]
-      }
-    ];
-
-    zonas.forEach(zona => {
-      L.polygon(zona.puntos, {
-        color: zona.color,
-        fillColor: zona.color,
-        fillOpacity: 0.25,
-        weight: 1
-      })
-        .bindPopup(zona.nombre)
-        .addTo(mapa);
-    });
-
-    L.marker([-12.594, -69.195])
-      .bindPopup("Equipo R-01")
-      .addTo(mapa);
-
-    L.marker([-12.603, -69.185])
-      .bindPopup("Equipo R-02")
-      .addTo(mapa);
-  </script>
-
 </body>
 </html>
