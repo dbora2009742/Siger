@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SIGER</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="../../css/admi/panel.css">
+</head>
+<body>
+
+  <!-- Barra lateral -->
+  <aside>
+    <img class="logo" src="../../img/logo.png" alt="SIGER">
+
+    <nav class="navegacion">
+      <a href="panel.html" aria-current="page"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <a href="usuarios.html"><i class="bi bi-people"></i> Usuarios y Permisos</a>
+      <a href="zonificacion.html"><i class="bi bi-map"></i> Zonificación</a>
+      <a href="mobiliario.html"><i class="bi bi-trash3"></i> Mobiliario Urbano</a>
+      <a href="recursos.html"><i class="bi bi-truck"></i> Recursos operativos</a>
+      <a href="rutas.html"><i class="bi bi-signpost-split"></i> Rutas y equipos</a>
+      <a href="aula-virtual.html"><i class="bi bi-play-btn"></i> Aula Virtual</a>
+    </nav>
+
+    <a class="cerrar-sesion" href="../login.html">
+      <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+    </a>
+  </aside>
+
+  <!-- Barra superior -->
+  <header class="barra-superior">
+    <button id="boton-menu" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+
+    <div class="perfil">
+      <i class="bi bi-person-fill"></i>
+      <p>Débora Mamani Vilca <small>Administrador</small></p>
+    </div>
+  </header>
+
+  <!-- Contenido (vacío por ahora) -->
+  <main>
+  </main>
+
+  <script src="../js/panel.js"></script>
+</body>
+</html>
